@@ -7,7 +7,7 @@ import {
 } from 'ai'
 import { searchSchema } from '@/lib/schema/search'
 import { Section } from '@/components/section'
-import { OpenAI } from '@ai-sdk/openai'
+import { createOpenAI } from '@ai-sdk/openai'
 import { BotMessage } from '@/components/message'
 import Exa from 'exa-js'
 import { Card } from '@/components/ui/card'
@@ -19,7 +19,7 @@ export async function researcher(
   messages: ExperimentalMessage[],
   useSpecificModel?: boolean
 ) {
-  const openai = new OpenAI({
+  const openai = createOpenAI({
     baseUrl: process.env.OPENAI_API_BASE, // optional base URL for proxies etc.
     apiKey: process.env.OPENAI_API_KEY, // optional API key, default to env property OPENAI_API_KEY
     organization: '' // optional organization
